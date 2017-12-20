@@ -42,7 +42,7 @@ namespace KM_Lab_4
             for (int i = 0; i < 462; i++)
             {
                 if (m.States[i].DeviceStates[0].onProc >= 1)
-                    load[2] += res[i];
+                    load[2] += res[i]/2;
                 if (m.States[i].DeviceStates[0].onProc == 2)
                     load[1] += res[i];
                 if (m.States[i].DeviceStates[0].onProc == 1)
@@ -67,6 +67,16 @@ namespace KM_Lab_4
             }
 
             Console.WriteLine(m.States[theMostPossible]);
+
+            Console.WriteLine("Load of CP core0 = " + load[0] + "\n");
+            Console.WriteLine("Load of CP core1 = " + load[1] + "\n");
+            Console.WriteLine("Load of CP = " + load[2] + "\n");
+            Console.WriteLine("Load of NB = " + load[3] + "\n");
+            Console.WriteLine("Load of OM = " + load[4] + "\n");
+            Console.WriteLine("Load of SB = " + load[5] + "\n");
+            Console.WriteLine("Load of NA = " + load[6] + "\n");
+            Console.WriteLine("Load of DC = " + load[7] + "\n");
+
             Console.Read();
         }
 
@@ -184,8 +194,6 @@ namespace KM_Lab_4
                 else { lambdas.Add(null); }
                 stat.Add(sIntencivity1);
             }
-            if (newState == new State(new DeviceState(4, 2, 0), new DeviceState(0, 0, 1), new DeviceState(0, 0, 1), new DeviceState(0, 0, 1), new DeviceState(0, 0, 1), new DeviceState(0, 0, 1)))
-                ;
             Dictionary<State, double> sIntencivity2 = new Dictionary<State, double>();
             for (int i = 0; i < lambdas.Count; i++)
             {
